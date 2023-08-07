@@ -1,7 +1,7 @@
 const express = require("express");
 const createError = require("http-errors");
 const morgan = require("morgan");
-const { graphqlHTTP } = require("express-graphql");
+const { createHandler } = require("graphql-http/lib/use/express");
 const schema = require("./schema/schema");
 const connectDB = require("./config/db");
 const colors = require("colors");
@@ -15,13 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(morgan("dev"));
 connectDB();
 
-app.use(
-  "/graphql",
-  graphqlHTTP({
-    schema,
-    graphiql: true,
-  })
-);
+app.use("/graphql", createHandler({ schema }));
 
 app.use((req, res, next) => {
   next(createError.NotFound());
