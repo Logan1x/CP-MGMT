@@ -52,7 +52,7 @@ export default function Navbar() {
           w="70%"
           margin="auto"
         >
-          <Flex gap={0}>
+          <Flex gap={0} alignItems="center">
             <Box px={2}>
               <svg
                 fill="none"
@@ -71,13 +71,9 @@ export default function Navbar() {
                 />
               </svg>
             </Box>
-            <Box>MGMT</Box>
-          </Flex>
-
-          <Flex alignItems={"center"}>
-            <Stack direction={"row"} spacing={7}>
-              <NavLink>Dashboard</NavLink>
-            </Stack>
+            <Box fontSize={"xl"} fontWeight="semibold">
+              MGMT
+            </Box>
           </Flex>
         </Flex>
       </Box>
