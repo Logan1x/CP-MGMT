@@ -82,6 +82,7 @@ export default function CreateClient() {
                 />
                 <Text>Email</Text>
                 <Input
+                  type="email"
                   placeholder="Sharmakhushal78@gmail.com"
                   value={ClientInfo.email}
                   onChange={(e) =>

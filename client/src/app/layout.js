@@ -1,11 +1,16 @@
 "use client";
 import { Providers } from "./providers";
 
+import Navbar from "@/components/nav/Navbar";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );
