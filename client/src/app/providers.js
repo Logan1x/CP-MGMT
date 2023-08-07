@@ -3,6 +3,7 @@
 import { CacheProvider } from "@chakra-ui/next-js";
 import { ChakraProvider } from "@chakra-ui/react";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import Head from "next/head";
 
 const client = new ApolloClient({
   uri: `${process.env.NEXT_PUBLIC_BACKEND_URL}/graphql`,
@@ -11,10 +12,16 @@ const client = new ApolloClient({
 
 export function Providers({ children }) {
   return (
-    <ApolloProvider client={client}>
-      <CacheProvider>
-        <ChakraProvider>{children}</ChakraProvider>
-      </CacheProvider>
-    </ApolloProvider>
+    <>
+      <Head>
+        <title>MGMT</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <ApolloProvider client={client}>
+        <CacheProvider>
+          <ChakraProvider>{children}</ChakraProvider>
+        </CacheProvider>
+      </ApolloProvider>
+    </>
   );
 }
