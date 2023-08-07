@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node ./server/app.js",
-    "dev": "nodemon ./server/app.js"
+    "dev": "nodemon ./server/app.js",
+    "build": "npm ci --legacy-peer-deps"
   },
   "keywords": [],
   "author": "",
